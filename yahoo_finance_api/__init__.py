@@ -37,7 +37,7 @@ class YahooFinance:
         # Getting data from json
         error = data['chart']['error']
         if error:
-            raise ValueError(error['description'])
+            self._result = 'error'
         self._result = self._parsing_json(data)
         if dropna:
             self._result.dropna(inplace=True)
